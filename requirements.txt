@@ -1,0 +1,13 @@
+# Análise de Dados e Gráficos
+pandas==2.1.4
+numpy==1.26.2
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.18.0
+
+# Machine Learning
+scikit-learn==1.3.2
+joblib==1.3.2
+
+# Interface e Web
+streamlit==1.29.0
