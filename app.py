@@ -100,5 +100,6 @@ if submit:
         """, unsafe_allow_html=True)
 
     except Exception as e:
-        st.error(f'Erro ao processar predição: {e}')
-        st.code(traceback.format_exc())
+        st.markdown("Erro ao processar predição")
+        # st.error(f'Erro ao processar predição: {e}')
+        # st.code(traceback.format_exc())
