@@ -21,50 +21,58 @@ with st.form('form_predicao'):
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        genero = st.selectbox('Gênero', ['Feminino', 'Masculino'])
-        idade = st.number_input('Idade', min_value=0, max_value=110, value=25)
-        altura = st.number_input('Altura (m)', min_value=0.0, max_value=2.5, value=1.70, step=0.01)
-        peso = st.number_input('Peso (kg)', min_value=0.0, max_value=300.0, value=70.0, step=0.1)
-        historico_familiar = st.selectbox('Histórico familiar de sobrepeso?', ['Sim', 'Não'])
+        genero = st.selectbox('Gênero', ['Feminino', 'Masculino'], index=None, placeholder='Selecione o gênero...')
+        idade = st.number_input('Idade', min_value=0, max_value=110, value=None, placeholder='Digite a idade...')
+        altura = st.number_input('Altura (m)', min_value=0.0, max_value=2.5, value=None, placeholder='Digite a altura (m)...', step=0.01)
+        peso = st.number_input('Peso (kg)', min_value=0.0, max_value=300.0, value=None, placeholder='Digite o peso (kg)...', step=0.1)
+        historico_familiar = st.selectbox('Histórico familiar de sobrepeso?', ['Sim', 'Não'], index=None, placeholder='Selecione uma opção...')
 
     with col2:
-        FAVC = st.selectbox('Consome alimentos calóricos frequentemente?', ['Sim', 'Não'])
-        FCVC = st.selectbox('Frequência de consumo de vegetais', ['Raramente', 'Às vezes', 'Sempre'])
-        NCP = st.selectbox('Número de refeições principais por dia', ['1 refeição', '2 refeições', '3 refeições', '4 ou mais refeições'])
-        CAEC = st.selectbox('Consumo de alimentos entre as refeições', ['Não consome', 'Consome às vezes', 'Consome frequentemente', 'Consome sempre'])
-        SMOKE = st.selectbox('É fumante?', ['Sim', 'Não'])
+        FAVC = st.selectbox('Consome alimentos calóricos frequentemente?', ['Sim', 'Não'], index=None, placeholder='Selecione uma opção...')
+        FCVC = st.selectbox('Frequência de consumo de vegetais', ['Raramente', 'Às vezes', 'Sempre'], index=None, placeholder='Selecione uma opção...')
+        NCP = st.selectbox('Número de refeições principais por dia', ['1 refeição', '2 refeições', '3 refeições', '4 ou mais refeições'], index=None, placeholder='Selecione uma opção...')
+        CAEC = st.selectbox('Consumo de alimentos entre as refeições', ['Não consome', 'Consome às vezes', 'Consome frequentemente', 'Consome sempre'], index=None, placeholder='Selecione uma opção...')
+        SMOKE = st.selectbox('É fumante?', ['Sim', 'Não'], index=None, placeholder='Selecione uma opção...')
 
     with col3:
-        CH2O = st.selectbox('Consumo diário de água', ['Menos de 1 litro por dia', 'De 1 a 2 litros por dia', 'Mais de 2 litros por dia'])
-        SCC = st.selectbox('Monitora o consumo de calorias?', ['Sim', 'Não'])
-        FAF = st.selectbox('Frequência de atividade física semanal', ['Nenhuma', '1 a 2 vezes por semana', '3 a 4 vezes por semana', '5 ou mais vezes por semana'])
-        TUE = st.selectbox('Tempo diário em dispositivos eletrônicos', ['0 a 2 horas por dia', '3 a 5 horas por dia', 'Mais de 5 horas por dia'])
-        CALC = st.selectbox('Consumo de álcool', ['Não consome', 'Consome às vezes', 'Consome frequentemente', 'Consome sempre'])
-        MTRANS = st.selectbox('Meio de transporte principal', ['Carro', 'Moto', 'Bicicleta', 'Transporte público', 'A pé'])
+        CH2O = st.selectbox('Consumo diário de água', ['Menos de 1 litro por dia', 'De 1 a 2 litros por dia', 'Mais de 2 litros por dia'], index=None, placeholder='Selecione uma opção...')
+        SCC = st.selectbox('Monitora o consumo de calorias?', ['Sim', 'Não'], index=None, placeholder='Selecione uma opção...')
+        FAF = st.selectbox('Frequência de atividade física semanal', ['Nenhuma', '1 a 2 vezes por semana', '3 a 4 vezes por semana', '5 ou mais vezes por semana'], index=None, placeholder='Selecione uma opção...')
+        TUE = st.selectbox('Tempo diário em dispositivos eletrônicos', ['0 a 2 horas por dia', '3 a 5 horas por dia', 'Mais de 5 horas por dia'], index=None, placeholder='Selecione uma opção...')
+        CALC = st.selectbox('Consumo de álcool', ['Não consome', 'Consome às vezes', 'Consome frequentemente', 'Consome sempre'], index=None, placeholder='Selecione uma opção...')
+        MTRANS = st.selectbox('Meio de transporte principal', ['Carro', 'Moto', 'Bicicleta', 'Transporte público', 'A pé'], index=None, placeholder='Selecione uma opção...')
 
     submit = st.form_submit_button('Gerar Diagnóstico')
 
 # Processamento e predição
 if submit:
-    # Criar DataFrame com os nomes das colunas idênticos ao treinamento
-    dados_entrada = pd.DataFrame({
-        'genero': [str(genero)],
-        'idade': [int(idade)],
-        'altura': [float(altura)],
-        'peso': [float(peso)],
-        'historico_familiar': [str(historico_familiar)],
-        'FAVC': [str(FAVC)],
-        'FCVC': [str(FCVC)],
-        'NCP': [str(NCP)],  # Forçando string para evitar o erro de iteração
-        'CAEC': [str(CAEC)],
-        'SMOKE': [str(SMOKE)],
-        'CH2O': [str(CH2O)],
-        'SCC': [str(SCC)],
-        'FAF': [str(FAF)],
-        'TUE': [str(TUE)],
-        'CALC': [str(CALC)],
-        'MTRANS': [str(MTRANS)]
-    })
+
+    # Lista de variáveis para verificar se alguma é None
+    campos = [genero, idade, altura, peso, historico_familiar, FAVC, FCVC, NCP, CAEC, SMOKE, CH2O, SCC, FAF, TUE, CALC, MTRANS]
+    
+    if None in campos:
+        st.error("⚠️ Por favor, preencha todos os campos do formulário antes de gerar o diagnóstico.")
+    else:
+
+        # Criar DataFrame com os nomes das colunas idênticos ao treinamento
+        dados_entrada = pd.DataFrame({
+            'genero': [str(genero)],
+            'idade': [int(idade)],
+            'altura': [float(altura)],
+            'peso': [float(peso)],
+            'historico_familiar': [str(historico_familiar)],
+            'FAVC': [str(FAVC)],
+            'FCVC': [str(FCVC)],
+            'NCP': [str(NCP)],  # Forçando string para evitar o erro de iteração
+            'CAEC': [str(CAEC)],
+            'SMOKE': [str(SMOKE)],
+            'CH2O': [str(CH2O)],
+            'SCC': [str(SCC)],
+            'FAF': [str(FAF)],
+            'TUE': [str(TUE)],
+            'CALC': [str(CALC)],
+            'MTRANS': [str(MTRANS)]
+        })
 
     try:
         predicao = model.predict(dados_entrada)
