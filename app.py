@@ -13,7 +13,7 @@ st.set_page_config(page_title='Preditor de Obesidade - Hospital', layout='wide')
 
 # Sidebar para navegação
 st.sidebar.title('Menu Principal')
-aba = st.sidebar.radio('Selecione a página:', ['Predição Individual', 'Painel de Insights Médicos'])
+aba = st.sidebar.radio('Selecione a página:', ['Predição Individual', 'Painel de Insights'])
 
 if aba == 'Predição Individual':
     st.title('Sistema de Apoio ao diagnóstico')
@@ -112,8 +112,8 @@ if aba == 'Predição Individual':
             st.error(f'Erro ao processar predição: {e}')
             st.code(traceback.format_exc())
 
-elif aba == 'Painel de Insights Médicos':
-    st.title('Painel de Insights Estratégicos')
+elif aba == 'Painel de Insights':
+    st.title('Painel de Insights')
     st.markdown('Este painel apresenta os principais fatores de risco identificados na base de dados para auxiliar a equipe médica em campanhas de prevenção.')
 
     # Carregar dados para os gráficos
