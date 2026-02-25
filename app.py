@@ -38,7 +38,7 @@ if aba == 'Predição Individual':
             historico_familiar = st.selectbox('Histórico familiar de sobrepeso?', ['Sim', 'Não'], index=None, placeholder='Selecione uma opção...')
 
         with col2:
-            consumo_alimento_calorico = st.selectbox('Consome alimentos calóricos frequentemente?', ['Sim', 'Não'], index=None, placeholder='Selecione uma opção...')
+            consumo_alimento_calórico = st.selectbox('Consome alimentos calóricos frequentemente?', ['Sim', 'Não'], index=None, placeholder='Selecione uma opção...')
             freq_consumo_vegetais = st.selectbox('Frequência de consumo de vegetais', ['Raramente', 'Às vezes', 'Sempre'], index=None, placeholder='Selecione uma opção...')
             num_refeicoes = st.selectbox('Número de refeições principais por dia', ['1 refeição', '2 refeições', '3 refeições', '4 ou mais refeições'], index=None, placeholder='Selecione uma opção...')
             consumo_entre_refeicoes = st.selectbox('Consumo de alimentos entre as refeições', ['Não consome', 'Consome às vezes', 'Consome frequentemente', 'Consome sempre'], index=None, placeholder='Selecione uma opção...')
@@ -57,7 +57,7 @@ if aba == 'Predição Individual':
     if submit:
 
         # Lista de variáveis para verificar se alguma é None
-        campos = [genero, idade, altura, peso, historico_familiar, consumo_alimento_calorico, freq_consumo_vegetais, num_refeicoes, consumo_entre_refeicoes, fumante, consumo_agua, monitora_caloria, freq_atividade_fisica, tempo_tela, consumo_alcool]
+        campos = [genero, idade, altura, peso, historico_familiar, consumo_alimento_calórico, freq_consumo_vegetais, num_refeicoes, consumo_entre_refeicoes, fumante, consumo_agua, monitora_caloria, freq_atividade_fisica, tempo_tela, consumo_alcool]
         
         if None in campos:
             st.error("⚠️ Por favor, preencha todos os campos do formulário antes de gerar o diagnóstico.")
@@ -70,7 +70,7 @@ if aba == 'Predição Individual':
                 'altura': [float(altura)],
                 'peso': [float(peso)],
                 'historico_familiar': [str(historico_familiar)],
-                'consumo_alimento_calorico': [str(consumo_alimento_calorico)],
+                'consumo_alimento_calórico': [str(consumo_alimento_calórico)],
                 'freq_consumo_vegetais': [str(freq_consumo_vegetais)],
                 'num_refeicoes': [str(num_refeicoes)],  # Forçando string para evitar o erro de iteração
                 'consumo_entre_refeicoes': [str(consumo_entre_refeicoes)],
@@ -270,7 +270,7 @@ elif aba == 'Painel de Insights Médicos':
             fig4 = px.histogram(
                 df, 
                 x='diagnostico', 
-                color='consumo_alimento_calórico', 
+                color='consumo_alimento_calorico', 
                 barmode='stack', 
                 barnorm='percent', 
                 title='Consumo de Alimentos Calóricos por Diagnóstico',
@@ -280,7 +280,7 @@ elif aba == 'Painel de Insights Médicos':
                 },
                 labels={
                     'diagnostico': 'Diagnóstico',
-                    'consumo_alimento_calorico': 'Consumo de Alimentos Calóricos'
+                    'consumo_alimento_calórico': 'Consumo de Alimentos Calóricos'
                 })
             fig4.update_layout(yaxis_title='Percentual de Pacientes (%)',)
             st.plotly_chart(ajustar_layout(fig4), use_container_width=True)
@@ -460,13 +460,13 @@ elif aba == 'Painel de Insights Médicos':
                     Maior relevância preditiva no modelo.\n
                     **Ação sugerida:** Incluir rastreio sistemático de padrão de consumo e investigar possível associação com ingestão calórica indireta e comportamento alimentar.\n
                     \n
-                    ##### **2. Tempo de tela**\n
-                    Fator importante na diferenciação entre níveis de obesidade.\n
-                    **Ação sugerida:** Avaliar comportamento sedentário e orientar metas graduais de redução do tempo sedentário diário.\n
-                    \n
-                    ##### **3. Frequência de atividade física**\n
+                    ##### **2. Frequência de atividade física**\n
                     Associada à progressão dos níveis de obesidade.\n
                     **Ação sugerida:** Reforçar prescrição individualizada de atividade física e acompanhamento de adesão.\n
+                    \n
+                    ##### **3. Tempo de tela**\n
+                    Fator importante na diferenciação entre níveis de obesidade.\n
+                    **Ação sugerida:** Avaliar comportamento sedentário e orientar metas graduais de redução do tempo sedentário diário.\n
                     \n
                     ##### **4. Número de refeições**\n
                     Contribuição moderada no modelo.\n

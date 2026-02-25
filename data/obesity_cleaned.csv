@@ -1,4 +1,4 @@
-genero,idade,altura,peso,historico_familiar,consumo_alimento_calórico,freq_consumo_vegetais,num_refeicoes,consumo_entre_refeicoes,fumante,consumo_agua,monitora_caloria,freq_atividade_fisica,tempo_tela,consumo_alcool,diagnostico
+genero,idade,altura,peso,historico_familiar,consumo_alimento_calorico,freq_consumo_vegetais,num_refeicoes,consumo_entre_refeicoes,fumante,consumo_agua,monitora_caloria,freq_atividade_fisica,tempo_tela,consumo_alcool,diagnostico
 Feminino,21.0,1.62,64.0,Sim,Não,Às vezes,3 refeições,Consome às vezes,Não,De 1 a 2 litros por dia,Não,Nenhuma,3 a 5 horas por dia,Não consome,Peso Normal
 Feminino,21.0,1.52,56.0,Sim,Não,Sempre,3 refeições,Consome às vezes,Sim,Mais de 2 litros por dia,Sim,5 ou mais vezes por semana,0 a 2 horas por dia,Consome às vezes,Peso Normal
 Masculino,23.0,1.8,77.0,Sim,Não,Às vezes,3 refeições,Consome às vezes,Não,De 1 a 2 litros por dia,Não,3 a 4 vezes por semana,3 a 5 horas por dia,Consome frequentemente,Peso Normal
