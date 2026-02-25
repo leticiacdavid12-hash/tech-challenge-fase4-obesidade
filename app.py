@@ -109,8 +109,8 @@ if aba == 'Predição Individual':
 
         except Exception as e:
             st.markdown("Erro ao processar predição")
-            # st.error(f'Erro ao processar predição: {e}')
-            # st.code(traceback.format_exc())
+            st.error(f'Erro ao processar predição: {e}')
+            st.code(traceback.format_exc())
 
 elif aba == 'Painel de Insights Médicos':
     st.title('Painel de Insights Estratégicos')
