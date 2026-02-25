@@ -270,7 +270,7 @@ elif aba == 'Painel de Insights Médicos':
             fig4 = px.histogram(
                 df, 
                 x='diagnostico', 
-                color='consumo_alimento_calorico', 
+                color='consumo_alimento_calórico', 
                 barmode='stack', 
                 barnorm='percent', 
                 title='Consumo de Alimentos Calóricos por Diagnóstico',
