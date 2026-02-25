@@ -3,19 +3,19 @@
 ## Visão Geral
 Este projeto for desenvolvido para auxiliar a equipe médica de um hospital na identificação precoce e classificação dos níveis de obesidade em pacientes, utilizando Machine Learning.
 
-## Entregáveis
-- **Dashboard de Insights:** [Link do Dashboard]
-- **Aplicação Preditiva (Streamlit):** [Link do App]
-- **Vídeo de Apresentação:** [Link do Vídeo]
+## Acesso Rápido
+- **Aplicação Web:** https://tech-challenge-fase4-obesidade-2026.streamlit.app/
+- **Vídeo de Apresentação:** [LINK AQUI]
 
-## Tecnologias Utilizadas
-- **Linguagem:** Python 3.11
-- **Processamento:** Pandas, Numpy
-- **ML:** Scikit-Learn
-- **Interface:** Streamlit
-- **Containerização:** Docker
+## Tecnologias e Arquitetura
+* **Linguagem:** Python 3.11
+* **Machine Learning:** Scikit-Learn (Pipeline com OrdinalEncoder e StandardScaler)
+* **Interface:** Streamlit (com abas de predição e dashboard analítico)
+* **Persistência:** Joblib para o modelo e SQLite para armazenamento de logs/dados.
+* **Infraestrutura:** Docker (arquivos de configuração inclusos para reprodutibilidade local).
 
 ## Estrutura do Projeto
-- `data/`: Base de dados e banco SQLite
-- `notebooks/`: Análise exploratória e experimentos
-- `src/`: Scripts de produção e aplicação
+- `data/`: Base Obesity.csv e banco hospital.db.
+- `models/`: Modelo serializado .pkl.
+- `notebooks/`: Processo completo de EDA, limpeza, pré-processamento e treinamento.
+- `src/`: Scripts de suporte.
