@@ -5,7 +5,7 @@ Este projeto for desenvolvido para auxiliar a equipe médica de um hospital na i
 
 ## Acesso Rápido
 - **Aplicação Web:** https://tech-challenge-fase4-obesidade-2026.streamlit.app/
-- **Vídeo de Apresentação:** [LINK AQUI]
+- **Vídeo de Apresentação:** https://youtube.com/watch?v=AgbXypB6z0s&feature=shared
 
 ## Tecnologias e Arquitetura
 * **Linguagem:** Python 3.11
